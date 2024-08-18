@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* Schimbat pentru a muta formularul mai sus */
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #e8f5e9; /* Culoare de fundal verde foarte pal */
+      padding-top: 10vh; /* Adăugat spațiu în partea de sus */
+    }
+    #loginForm {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+      background-color: #fff; /* Fundal alb pentru formular */
+    }
+    #loginForm input[type="submit"] {
+      margin-top: 10px;
+      background-color: #39ff14; /* Verde neon pentru buton */
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: white;
+      cursor: pointer; /* Schimbă cursorul când e deasupra butonului */
+    }
+    #loginForm input[type="submit"]:hover {
+      background-color: #32cd32; /* Schimbă culoarea butonului când este hover */
+    }
+    h2 {
+      margin-bottom: 15px;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $("#loginForm").submit(function (event) {
+        event.preventDefault();
+        const username = $("#username").val();
+        const password = $("#password").val();
+
+        $.ajax({
+          type: "POST",
+          url: "http://localhost:8082/login",
+          contentType: "application/json",
+          data: JSON.stringify({ "username": username, "password": password }),
+          success: function (data) {
+            localStorage.setItem("token", data.token);
+            window.location.href = "index.html";
+          },
+          error: function (error) {
+            alert("Invalid username or password");
+          }
+        });
+      });
+    });
+  </script>
+</head>
+<body>
+<h2>Login</h2>
+<form id="loginForm">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required><br><br>
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required><br><br>
+
+  <input type="submit" value="Login">
+</form>
+</body>
+</html>

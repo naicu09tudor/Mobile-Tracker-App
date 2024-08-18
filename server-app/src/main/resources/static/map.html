@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>The Map</title>
+    <style>
+        body {
+            background-color: #e8f5e9; /* Pale green background */
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        #mapdiv {
+            height: 650px; /* Adjust to make the map square */
+            width: 850px; /* Adjust to make the map square */
+            margin-top: 30px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+        input[type="button"] {
+            background-color: #39ff14; /* Neon green buttons */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        input[type="button"]:hover {
+            background-color: #32cd32; /* Darker green on hover */
+        }
+    </style>
+
+
+    <script src="http://www.openlayers.org/api/OpenLayers.js"></script>
+    <script src="js/position.js"></script>
+    <script src="js/map.js"></script>
+    <script src="js/common.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</head>
+<body>
+<h1 align="center">The Map Test</h1>
+<br>
+
+<div class="button-container">
+    <input type="button" id="add_marker" value="Place Static Marker" onclick="addStaticMarker()">
+    <input type="button" id="go_home" value="Back" onclick="goToPage2('index.html')">
+</div>
+<div id="mapdiv"></div>
+<script>
+    initializeMap();
+</script>
+
+</body>
+</html>

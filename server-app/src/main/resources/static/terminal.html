@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Terminal Operations</title>
+  <style>
+    body {
+      background-color: #e8f5e9; /* Pale green background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #cfcfc4; /* Cream grey color */
+    }
+    button:hover {
+      background-color: #006400; /* Dark green on hover */
+    }
+    .button-create {
+      background-color: #4CAF50; /* Example green color for create button */
+    }
+    .button-delete {
+      background-color: #f44336; /* Example red color for delete button */
+    }
+    .button-login {
+      background-color: #2196F3; /* Example blue color for login button */
+    }
+    .button-create:hover{
+      background-color: #006400; /* Example green color for create button */
+    }
+    .button-delete:hover{
+      background-color: #e82113; /* Example red color for delete button */
+    }
+    .button-login:hover{
+      background-color: #2180f3;
+    }
+    .button-homepage:hover {
+      background-color: #ccccaa; /* Dark green on hover */
+    }
+    .button-homepage {
+      background-color: #cfcfc4; /* Cream grey color for the home page button */
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/terminal.js"></script>
+</head>
+<body>
+<label for="id">Terminal ID:</label>
+<input type="text" id="id" name="id"><br><br>
+
+<label for="terminalName">Terminal Name:</label>
+<input type="text" id="terminalName" name="terminalName"><br><br>
+
+<button class="button-create" onclick="createTerminal()">Create Terminal</button>
+<button class="button-delete" onclick="deleteTerminal()">Search & Delete Terminal</button>
+<button class="button-login" onclick="goToPage2('login.html')">Login</button>
+<button class="button-homepage" onclick="goToHomePage()">Home Page</button>
+
+<script>
+  function goToHomePage() {
+    window.location.href = 'index.html'; // Adjust as necessary for your home page URL
+  }
+</script>
+</body>
+</html>

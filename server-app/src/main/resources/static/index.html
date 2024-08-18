@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Admin Application Sketch</title>
+    <style>
+        body {
+            background-color: #e8f5e9; /* Verde pal pentru fundal */
+            font-family: Arial, sans-serif;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        #result {
+            margin-top: 20px;
+        }
+        table {
+            margin-top: 50px; /* Ridică tabelul mai sus pe pagină */
+        }
+        input[type="text"], input[type="button"] {
+            padding: 10px;
+            margin: 5px 0; /* Spațiu între input-uri */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="button"] {
+            background-color: #39ff14; /* Verde neon pentru butoane */
+            color: white;
+            cursor: pointer; /* Schimbă cursorul când e deasupra butonului */
+        }
+        input[type="button"]:hover {
+            background-color: #32cd32; /* Schimbă culoarea butonului când este hover */
+        }
+        #result {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .position-item {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
+            text-align: left;
+        }
+
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/position.js"></script>
+</head>
+
+<body>
+<h1 align="center">Admin Application Sketch</h1>
+
+<div id align="center">
+    <table align="center">
+        <tr>
+            <td><b>Device Id</b></td>
+            <td><input type="text" id="deviceId" size="35" value="1" class="regular_input"></td>
+        </tr>
+        <tr>
+            <td><b>Start Date</b></td>
+            <td><input type="text" id="startDate" size="35" value="2020-01-01 00:00:00"></td>
+        </tr>
+        <tr>
+            <td><b>End Date</b></td>
+            <td><input type="text" id="endDate" size="35" value="2025-01-01 00:00:00"
+                       onkeydown="if (event.keyCode == 13) getPositions()"></td>
+        </tr>
+        <tr>
+            <td align="left">
+                <input type="button" id="get_positions_button" size="35" value="Get Positions"
+                       onclick=getPositions()></td>
+            <td align="center">
+                <input type="button" id="go_to_login" size="35" value="Login"
+                       onclick=goToPage2('login.html')></td>
+            <td align="right"><input type="button" name="show_static_position" size="35" value="Show on Map"
+                                     onclick=goToPage('map.html')></td>
+        </tr>
+        <tr>
+            <td align="left">
+                <input type="button" id="terminals_page" size="35" value="Terminals"
+                       onclick=goToPage2('terminal.html')></td>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<div id="result" align="center">
+    <h2>Results will be printed here</h2>
+</div>
+</body>
+</html>
